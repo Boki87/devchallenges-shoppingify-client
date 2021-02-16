@@ -1,0 +1,55 @@
+.save_footer_wrapper {
+  height: 80px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  img {
+    height: 200px;
+    position: absolute;
+    top: -195px;
+  }
+}
+
+.save_sl_input {
+  height: 50px;
+  width: 90%;
+  max-width: 330px;
+  display: flex;
+  border-radius: 8px;
+  border: 2px solid var(--gold);
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  input {
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: inherit;
+    flex: 1;
+    outline: none;
+  }
+
+  button {
+    border: none;
+    border-radius: 4px;
+    background: var(--gold);
+    height: 100%;
+    width: 70px;
+    color: var(--white);
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.save_sl_disabled {
+  border: 2px solid #ccc;
+
+  input {
+    pointer-events: none;
+  }
+
+  button {
+    pointer-events: none;
+    background: #ccc;
+  }
+}

@@ -1,0 +1,11 @@
+.complete_footer_wrapper {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+
+  .btn {
+    margin: 10px;
+  }
+}

@@ -3,6 +3,9 @@ import {useDispatch, useSelector} from 'react-redux'
 import ShoppingListHero from './ShoppingListHero'
 
 import ItemsContainer from './ItemsContainer'
+import CompleteFooter from './CompleteFooter'
+import SaveFooter from './SaveFooter'
+
 
 import {setEditMode} from '../../../reducers/shoppingList'
 
@@ -46,6 +49,12 @@ const ShoppingList = () => {
             </div>
                 
             <ItemsContainer />
+
+            {!editMode ?
+                <CompleteFooter /> 
+                :
+                <SaveFooter />
+            }
         </div>
     )
 }
