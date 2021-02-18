@@ -1,0 +1,62 @@
+.sl_card_wrapper {
+  width: 100%;
+  height: 60px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.05);
+  background: var(--white);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.sl_card_name {
+  font-size: 1rem;
+  flex: 1;
+}
+
+.sl_card_date {
+  height: 100%;
+  min-width: 200px;
+  padding: 0px 10px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--textLight);
+  .material-icons {
+    margin-right: 5px;
+    font-size: 1.2rem;
+  }
+}
+
+.sl_card_status {
+  height: 24px;
+  min-width: 75px;
+  font-size: 0.7rem;
+  padding: 0px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sl_card_status_completed {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+.sl_card_status_canceled {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.sl_card_arrow {
+  width: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  cursor: pointer;
+  margin-left: 20px;
+}

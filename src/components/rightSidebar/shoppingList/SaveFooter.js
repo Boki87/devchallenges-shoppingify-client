@@ -1,15 +1,22 @@
 import React from 'react'
 
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 import NoItemsImage from '../../../assets/shopping.svg'
+
+import {setList} from '../../../reducers/shoppingList'
 
 import './SaveFooter.scss'
 
 const SaveFooter = () => {
 
-    const items = useSelector(state => state.shoppingList.items)
+    const {items, name} = useSelector(state => state.shoppingList)
 
+    const dispatch = useDispatch()
+
+    const setName = (e) => {        
+        dispatch(setList({name: e.target.value}))
+    }
 
     return (
         <div className='save_footer_wrapper'>
@@ -20,7 +27,7 @@ const SaveFooter = () => {
             
 
             <div className={`save_sl_input ${items.length == 0 ? 'save_sl_disabled' : ''}`}>
-                <input type="text" placeholder='Enter a name'/>
+                <input type="text" placeholder='Enter a name' value={name} onChange={setName}/>
                 <button>Save</button>
             </div>
 

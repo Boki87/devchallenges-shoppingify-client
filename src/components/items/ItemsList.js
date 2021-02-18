@@ -22,7 +22,7 @@ const ItemsList = ({ items }) => {
 
 
     const addItemToShoppingList = (item) => {
-        dispatch(addItem({ ...item, done: false, amount: 1 }))
+        dispatch(addItem({ ...item, done: false, quantity: 1 }))
     }
 
     return (

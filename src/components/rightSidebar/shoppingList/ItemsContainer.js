@@ -19,8 +19,13 @@ const ItemsContainer = () => {
 
     return (
         <div className='shopping_list_items'>
-            
-            {categories.map((cat, i) => {
+            {
+                items.length == 0 &&
+                <div style={{display:'flex', height:'100%', alignItems:'center', justifyContent: 'center'}}>
+                    No items
+                </div>
+            }
+            {items.length > 0 && categories.map((cat, i) => {
                 return (
                     <div key={i}>
                         <div className='sl_block_title'>{cat}</div>

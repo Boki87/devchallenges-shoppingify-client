@@ -5,7 +5,7 @@ import {useOutsideClick} from '../../../hooks/outsideClick'
 import './AmountBtn.scss'
 
 
-const AmountBtn = ({ amount, onDelete, onAdd, onDecrease }) => {
+const AmountBtn = ({ quantity, onDelete, onAdd, onDecrease }) => {
     
     const wrapperRef = useRef(null)
 
@@ -51,7 +51,7 @@ const AmountBtn = ({ amount, onDelete, onAdd, onDecrease }) => {
                 </div>
             }
             <div onClick={() => editMode && toggleControls()} className='amount_btn'>
-                {amount} pcs
+                {quantity} pcs
             </div>
             {editMode && showControls &&
                 <div onClick={addHandler} className='amountBtn-control'>

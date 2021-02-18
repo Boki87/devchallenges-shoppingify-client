@@ -4,6 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const shoppingListSlice = createSlice({
     name: 'shoppingList',
     initialState: {
+        id: null,
+        name: '',
         items: [],
         editMode: true,
     },
@@ -22,6 +24,11 @@ const shoppingListSlice = createSlice({
             return {...state, editMode: action.payload}
         },
 
+        setList(state, action) {
+            
+            return {...state, ...action.payload}
+        },
+
         addItem(state, action) {            
 
                 if (state.items.length > 0) {                    
@@ -32,7 +39,7 @@ const shoppingListSlice = createSlice({
                         
                         state.items.map(item => {
                             if (item._id === action.payload._id) {
-                                item.amount += 1
+                                item.quantity += 1
                             }
                             return item
                         })
@@ -47,7 +54,7 @@ const shoppingListSlice = createSlice({
         increaseItem(state, action) {
             state.items.map(item => {
                 if (item._id === action.payload._id) {
-                    item.amount += 1
+                    item.quantity += 1
                 }
                 return item
             })            
@@ -56,8 +63,8 @@ const shoppingListSlice = createSlice({
         decreaseItem(state, action) {
             state.items.map(item => {
                 if (item._id === action.payload._id) {
-                    if (item.amount > 1) {                        
-                        item.amount -= 1
+                    if (item.quantity > 1) {                        
+                        item.quantity -= 1
                     }
                 }
                 return item
@@ -72,6 +79,6 @@ const shoppingListSlice = createSlice({
     }
 })
 
-export const { setEditMode, addItem, increaseItem, decreaseItem, deleteItem, setChecked } = shoppingListSlice.actions
+export const { setEditMode, addItem, increaseItem, decreaseItem, deleteItem, setChecked, setList } = shoppingListSlice.actions
 
 export default shoppingListSlice.reducer

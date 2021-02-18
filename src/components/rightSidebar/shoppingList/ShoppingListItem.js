@@ -45,7 +45,7 @@ const ShoppingListItem = ({ item }) => {
             }
             <h4 onClick={checkHandler} style={{textDecoration:`${item.done ? 'line-through': 'none'}`}}>{item.name}</h4>
             <AmountBtn
-                amount={item.amount}
+                quantity={item.quantity}
                 onDelete={deleteHandler}
                 onAdd={addHandler}
                 onDecrease={decreaseHandler}
