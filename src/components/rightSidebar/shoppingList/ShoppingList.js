@@ -130,7 +130,9 @@ const ShoppingList = () => {
             <ShoppingListHero />
             
             <div className='shopping_list_name_container' style={{padding:'0px 30px', display:'flex'}}>
-                <h2>Shopping List</h2>
+                <h2>
+                    { name != '' ? name : 'Shopping List'}                    
+                </h2>
                 {items.length > 0 && !editMode && 
                     <div onClick={setInEditMode} className='btn-round bg-cream'>
                         <span className="material-icons">

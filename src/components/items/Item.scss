@@ -13,7 +13,8 @@
   .item_name {
     padding: 5px 0px;
     flex: 1;
-    word-break: break-all;
+    white-space: pre-wrap;
+    cursor: pointer;
   }
 
   .item_add {
@@ -27,5 +28,15 @@
     &:hover {
       background: var(--light);
     }
+  }
+
+  .item_info {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
   }
 }

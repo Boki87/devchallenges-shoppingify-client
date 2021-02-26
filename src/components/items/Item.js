@@ -3,13 +3,13 @@ import React from 'react'
 
 import './Item.scss'
 
-const Item = ({ name, addItem }) => {
+const Item = ({ name, addItem, viewItem }) => {
     
     
 
     return (
         <div className='item_wrapper'>
-            <div className='item_name'>
+            <div onClick={viewItem} className='item_name'>
                 {name}
             </div>
 

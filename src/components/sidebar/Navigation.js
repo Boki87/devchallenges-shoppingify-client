@@ -26,7 +26,7 @@ const Navigation = () => {
                     </span>
                 </div>
             </NavLink>
-            <NavLink exact to="/history" className='navBtn' activeClassName="selected">
+            <NavLink to="/history" className='navBtn' activeClassName="selected">
                 <div className='activeBorder'></div>
                 <div className='navBtn_inner'>
                     <span className="material-icons" style={{transform: 'scaleX(-1)'}}>

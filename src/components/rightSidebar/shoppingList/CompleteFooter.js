@@ -5,6 +5,8 @@ import {setList} from '../../../reducers/shoppingList'
 import {api} from '../../../utils/api'
 import './CompleteFooter.scss'
 
+import ConfirmModal from '../../confirmModal/ConfirmModal'
+
 const CompleteFooter = () => {
 
     let {editMode, id, name, items} = useSelector(state => state.shoppingList)
@@ -12,6 +14,19 @@ const CompleteFooter = () => {
     const dispatch = useDispatch()
 
     const [loading, setLoading] = useState(false)
+    const [showConfirmModal, setConfirmModal] = useState(false)
+
+    const confirmCancel = () => {
+        setConfirmModal(true)
+    }
+    
+    const closeConfirmModal = () => {
+        setConfirmModal(false)
+    }
+
+    const confirmCancelCallback = () => {
+        completeList('canceled')
+    }
 
     const completeList = async (action) => {
 
@@ -50,7 +65,7 @@ const CompleteFooter = () => {
 
     return (
         <div className='complete_footer_wrapper'>
-            <button disabled={loading} onClick={() => completeList('canceled')} className='btn btn-white'>
+            <button disabled={loading} onClick={confirmCancel} className='btn btn-white'>
                 {loading ?
                     'Loading..'
                     :
@@ -65,6 +80,16 @@ const CompleteFooter = () => {
                     'Complete'
                 }                
             </button>
+            {
+                showConfirmModal
+                &&
+                <ConfirmModal
+                    title='Are you sure that you want to cancel this list?'
+                    onClose={closeConfirmModal}
+                    cb={confirmCancelCallback}
+                />
+            }
+            
         </div>
     )
 }

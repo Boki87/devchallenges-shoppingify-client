@@ -59,4 +59,9 @@
   color: var(--gold);
   cursor: pointer;
   margin-left: 20px;
+
+  a {
+    color: var(--gold);
+    text-decoration: none;
+  }
 }

@@ -3,6 +3,7 @@ import {v4 as uuidv4} from 'uuid'
 import { useDispatch } from 'react-redux'
 
 import { addItem } from '../../reducers/shoppingList'
+import { setItemFormData, openItemForm } from '../../reducers/itemSidebar'
 
 import Item from './Item'
 
@@ -25,6 +26,12 @@ const ItemsList = ({ items }) => {
         dispatch(addItem({ ...item, done: false, quantity: 1 }))
     }
 
+    const viewItemHandler = (item) => {
+        
+        dispatch(setItemFormData(item))
+        dispatch(openItemForm())
+    }
+
     return (
         <div className='items_list_wrapper'>            
             {categories.map(cat => {
@@ -35,7 +42,12 @@ const ItemsList = ({ items }) => {
                         {
                             items.map(item => {
                                 if (item.category == cat) {
-                                    return <Item addItem={() => addItemToShoppingList(item) } name={item.name} key={uuidv4()}/>
+                                    return <Item
+                                                addItem={() => addItemToShoppingList(item)}
+                                                name={item.name}
+                                                key={uuidv4()}
+                                                viewItem={() => viewItemHandler(item)}
+                                            />
                                 }
                             })
                         }

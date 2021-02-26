@@ -1,9 +1,15 @@
 import React from 'react'
 
+import {useDispatch} from 'react-redux'
+import {openNewItemForm} from '../../../reducers/itemSidebar'
+
 import SourceImg from '../../../assets/source.svg'
 import './ShoppingListHero.scss'
 
 const ShoppingListHero = () => {
+
+    const dispatch = useDispatch()
+
     return (
         <div className='shopping_list_hero'>
             <div className='img_container'>
@@ -13,7 +19,7 @@ const ShoppingListHero = () => {
                 <p>
                     Didn't find what you need?
                 </p>
-                <button className='btn btn-white'>Add item</button>
+                <button onClick={() => dispatch(openNewItemForm())} className='btn btn-white'>Add item</button>
             </div>
         </div>
     )

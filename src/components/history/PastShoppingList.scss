@@ -1,0 +1,23 @@
+.past_shopping_list_wrapper {
+  padding-top: 50px;
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    color: var(--gold);
+    cursor: pointer;
+    .material-icons {
+      margin-right: 10px;
+    }
+  }
+
+  .sl_date {
+    display: flex;
+    align-items: center;
+    color: var(--textLight);
+    margin-bottom: 30px;
+    .material-icons {
+      margin-right: 10px;
+    }
+  }
+}

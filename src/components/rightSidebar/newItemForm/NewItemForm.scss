@@ -6,4 +6,63 @@
   left: 0px;
   z-index: 10;
   background: var(--light);
+  padding: 30px;
+  padding-bottom: 100px;
+  overflow: auto;
+
+  .input-group {
+    width: 100%;
+    margin-bottom: 20px;
+
+    input {
+      border: 2px solid #bdbdbd;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 1.1rem;
+      outline: none;
+      margin-top: 10px;
+      height: 60px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    textarea {
+      border: 2px solid #bdbdbd;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 1.1rem;
+      outline: none;
+      margin-top: 10px;
+      height: 60px;
+      transition: all 0.2s ease-in-out;
+      height: 110px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      span {
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:focus-within {
+        textarea {
+          border: 2px solid var(--gold);
+        }
+
+        input {
+          border: 2px solid var(--gold);
+        }
+        span {
+          color: var(--gold);
+        }
+      }
+    }
+  }
+
+  button:disabled {
+    pointer-events: none;
+    filter: brightness(80%);
+  }
 }

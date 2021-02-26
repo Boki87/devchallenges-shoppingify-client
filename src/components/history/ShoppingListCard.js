@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link, useRouteMatch} from 'react-router-dom'
 
 import './ShoppingListCard.scss'
 const ShoppingListCard = ({ list }) => {
     
-    
+    let {url} = useRouteMatch()
 
     function formatedDate() {
         let d = new Date(list.createdAt)
@@ -21,7 +22,7 @@ const ShoppingListCard = ({ list }) => {
         let dayFull = days[d.getDay()]
 
         let day = d.getDate()
-        let month = d.getMonth()
+        let month = d.getMonth() + 1
         let year = d.getFullYear()
         
         return `${dayFull} ${day}.${month}.${year}`
@@ -42,9 +43,11 @@ const ShoppingListCard = ({ list }) => {
                 {list.status}
             </div>
             <div className='sl_card_arrow'>
-                <span className="material-icons">
-                    keyboard_arrow_right
-                </span>
+                <Link to={`${url}/${list._id}`}>
+                    <span className="material-icons">
+                        keyboard_arrow_right
+                    </span>
+                </Link>
             </div>
         </div>
     )

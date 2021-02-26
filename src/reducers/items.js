@@ -8,10 +8,16 @@ const itemsSlice = createSlice({
         setItems(state, action) {            
             return action.payload
         },
+        addItem(state, action) {
+            return [...state, action.payload]
+        },
+        deleteItem(state, action) {
+            return state.filter(item => item._id !== action.payload)
+        }
 
     }
 })
 
-export const { setItems } = itemsSlice.actions
+export const { setItems, addItem, deleteItem } = itemsSlice.actions
 
 export default itemsSlice.reducer

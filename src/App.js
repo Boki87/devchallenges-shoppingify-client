@@ -5,9 +5,11 @@ import Auth from './components/auth/Auth'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
+
+
 function App() {
 
-  const user = useSelector(state => state.user)
+  const user = useSelector(state => state.user)  
 
   return (
     <>
