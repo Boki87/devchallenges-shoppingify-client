@@ -3,9 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const itemSidebarSlice = createSlice({
     name: 'items',
     initialState: {
-        showNewItemForm: false,
-        newItemData: null,
-
+        showRightSidebar: true,
+        showNewItemForm: false,        
         showItemForm: false,
         itemFormData: null,
     },
@@ -18,13 +17,26 @@ const itemSidebarSlice = createSlice({
         },
         
         openItemForm(state, action) {
-            return {...state, showItemForm: true}
+            return {...state, showItemForm: true, showRightSidebar:true}
         },
         closeItemForm(state, action) {
-            return {...state, showItemForm: false}
+
+            let showRightSidebarFlag = true
+            if (window.innerWidth < 721) {
+                showRightSidebarFlag = false
+            }
+
+            return {...state, showItemForm: false, showRightSidebar: showRightSidebarFlag}
         },
         setItemFormData(state, action) {
             return {...state, itemFormData: action.payload}
+        },
+
+        openRightSidebar(state, action) {
+            return {...state, showRightSidebar: true}
+        },
+        closeRightSidebar(state, action) {
+            return {...state, showRightSidebar: false}
         }
     }
 })
@@ -34,7 +46,9 @@ export const {
     closeNewItemForm,
     openItemForm,
     closeItemForm,
-    setItemFormData
+    setItemFormData,
+    openRightSidebar,
+    closeRightSidebar
 } = itemSidebarSlice.actions
 
 export default itemSidebarSlice.reducer

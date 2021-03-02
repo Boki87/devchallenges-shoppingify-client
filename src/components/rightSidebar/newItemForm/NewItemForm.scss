@@ -41,7 +41,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-
+      position: relative;
       span {
         transition: all 0.2s ease-in-out;
       }
@@ -56,6 +56,31 @@
         }
         span {
           color: var(--gold);
+        }
+      }
+
+      .select_options {
+        position: absolute;
+        top: calc(100% + 10px);
+        width: 100%;
+        min-height: 60px;
+        max-height: 200px;
+        overflow: auto;
+        border-radius: 12px;
+        background: var(--white);
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+        padding: 10px;
+        .select_option {
+          height: 45px;
+          width: 100%;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          padding-left: 15px;
+          cursor: pointer;
+          &:hover {
+            background: #f2f2f2;
+          }
         }
       }
     }

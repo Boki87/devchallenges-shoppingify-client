@@ -19,7 +19,7 @@ const PastShoppingList = () => {
     
     
     useEffect(() => {
-        if (data) { 
+        if (data) {             
             setCategories([...new Set(data.items.map(item => item.item.category))])
         }
     }, [data])  

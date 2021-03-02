@@ -1,7 +1,7 @@
 import React from 'react'
 import './ItemsSearch.scss'
 
-const ItemsSearch = () => {
+const ItemsSearch = ({itemQuery}) => {
     return (
         <div className='items_search_wrapper'>
             <div className='items_search__hero'>
@@ -14,7 +14,7 @@ const ItemsSearch = () => {
                         <span className="material-icons">
                             search
                         </span>
-                        <input type="search" placeholder='search item'/>
+                    <input onChange={itemQuery} type="search" placeholder='search item'/>
                     </div>
             </div>
         </div>

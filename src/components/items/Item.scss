@@ -10,6 +10,10 @@
   display: flex;
   align-self: flex-start;
 
+  @media screen and(max-width: 720px) {
+    margin: 5px 10px 5px 0px;
+  }
+
   .item_name {
     padding: 5px 0px;
     flex: 1;

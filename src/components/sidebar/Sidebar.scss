@@ -1,10 +1,14 @@
 .sidebar_wrapper {
-  width: 95px;
+  min-width: 95px;
   height: 100%;
   background: var(--white);
   padding: 30px 0px;
   display: flex;
   flex-direction: column;
+
+  @media screen and(max-width: 720px) {
+    min-width: 60px;
+  }
 }
 
 .sidebar_img_container {

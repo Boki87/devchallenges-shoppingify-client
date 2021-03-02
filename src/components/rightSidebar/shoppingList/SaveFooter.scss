@@ -4,7 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   img {
     height: 200px;
     position: absolute;
@@ -14,8 +17,8 @@
 
 .save_sl_input {
   height: 50px;
-  width: 90%;
-  max-width: 330px;
+  // width: 90%;
+  // max-width: 330px;
   display: flex;
   border-radius: 8px;
   border: 2px solid var(--gold);

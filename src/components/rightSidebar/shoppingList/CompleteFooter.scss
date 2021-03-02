@@ -4,7 +4,10 @@
   align-items: center;
   justify-content: center;
   background: var(--white);
-
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   .btn {
     margin: 10px;
   }

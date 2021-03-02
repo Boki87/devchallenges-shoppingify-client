@@ -4,6 +4,7 @@
   background: var(--cream);
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .shopping_list_name_container {

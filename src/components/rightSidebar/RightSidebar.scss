@@ -2,4 +2,12 @@
   min-width: 390px;
   height: 100%;
   position: relative;
+
+  @media screen and(max-width: 720px) {
+    min-width: 100px;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    width: calc(100% - 60px);
+  }
 }

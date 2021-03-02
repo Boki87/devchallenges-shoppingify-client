@@ -39,8 +39,7 @@ const ShoppingList = () => {
                             name: i.item.name,
                             _id: i.item._id                            
                         }
-                    })
-                    console.log(newList.items);
+                    })                    
                     dispatch(setList({
                         items: newItems,
                         name: newList.name,
@@ -64,14 +63,10 @@ const ShoppingList = () => {
         dispatch(setEditMode(true))        
     }
 
-    const setInCompleteMode = async () => {
-        //set method
-        
-
+    const setInCompleteMode = async () => {                
         //ajax to save list
         try {
-            if (id) {
-                console.log('update');
+            if (id) {                
                 //update list
                 let newItems = items.map(i => {
                     return {
@@ -92,8 +87,7 @@ const ShoppingList = () => {
                     //toast error
                     return toast.error('Could not update shopping list')
                 }
-            } else {
-                console.log('new');
+            } else {                
                 //create new list                
                 let newItems = items.map(i => {
                     return {

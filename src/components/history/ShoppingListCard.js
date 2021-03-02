@@ -33,21 +33,23 @@ const ShoppingListCard = ({ list }) => {
             <div className='sl_card_name'>
                 {list.name != '' ? list.name: 'Shopping List'}
             </div>
-            <div className='sl_card_date'>
-                <span className="material-icons">
-                    today
-                </span>
-                {formatedDate()}
-            </div>
-            <div className={`sl_card_status sl_card_status_${list.status}`}>
-                {list.status}
-            </div>
-            <div className='sl_card_arrow'>
-                <Link to={`${url}/${list._id}`}>
+            <div className='sl_card_controls'>
+                <div className='sl_card_date'>
                     <span className="material-icons">
-                        keyboard_arrow_right
+                        today
                     </span>
-                </Link>
+                    {formatedDate()}
+                </div>
+                <div className={`sl_card_status sl_card_status_${list.status}`}>
+                    {list.status}
+                </div>
+                <div className='sl_card_arrow'>
+                    <Link to={`${url}/${list._id}`}>
+                        <span className="material-icons">
+                            keyboard_arrow_right
+                        </span>
+                    </Link>
+                </div>
             </div>
         </div>
     )

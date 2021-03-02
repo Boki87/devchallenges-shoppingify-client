@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {toast} from 'react-toastify'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import useInput from '../../../hooks/useInput'
 
 import {api} from '../../../utils/api'
 
 import {addItem} from '../../../reducers/items'
 import {closeNewItemForm} from '../../../reducers/itemSidebar'
+import CategorySelect from './CategorySelect'
+
 
 import './NewItemForm.scss'
 
@@ -18,10 +20,22 @@ const NewItemForm = () => {
     const name = useInput('')
     const note = useInput('')
     const image = useInput('')
-    const category = useInput('')
+    const [category, setCategory] = useState('')
 
     const [loading, setLoading] = useState(false)
+    const [categories, setCategories] = useState([])
 
+    const items = useSelector(state => state.items)
+
+    useEffect(() => {
+        let newCategories = []
+        items.forEach(item => {
+            if (!newCategories.includes(item.category)) {
+                newCategories.push(item.category)
+            }
+        })
+        setCategories(newCategories)
+    }, [items])
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
@@ -38,7 +52,7 @@ const NewItemForm = () => {
                 name: name.value,
                 note: note.value,
                 image: image.value,
-                category: category.value,
+                category
             })
 
             if (newItemReq.data.success) {                
@@ -58,6 +72,9 @@ const NewItemForm = () => {
 
     }
 
+    const categoryChangeHandler = (val) => {        
+        setCategory(val)
+    }
 
     const cancel = () => {
         dispatch(closeNewItemForm())
@@ -100,18 +117,12 @@ const NewItemForm = () => {
                         />
                     </label>
                 </div>
-                <div className='input-group'>
-                    <label htmlFor="">
-                        <span>Category</span>
-                        <input
-                            type="search"
-                            placeholder='Enter a category'
-                            required={true}
-                            value={category.value}
-                            onChange={category.onChange}
-                        />
-                    </label>
-                </div>
+                <CategorySelect
+                    placeholder='Enter a category'
+                    required={true}                    
+                    onChange={categoryChangeHandler}
+                    options={categories}
+                />
 
                 <div className='complete_footer_wrapper' style={{position:'absolute', bottom:'0px',left:'0px', width: '100%'}}>
                     

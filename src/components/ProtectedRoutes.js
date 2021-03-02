@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
-
+import {useSelector} from 'react-redux'
 
 import Sidebar from './sidebar/Sidebar'
 
@@ -14,14 +14,18 @@ import './ProtectedRoutes.scss'
 
 const ProtectedRoutes = () => {
   
+    let {showRightSidebar} = useSelector(state => state.itemSidebar)
+
     return (
         <div className='protected_routes_wrapper'>
             <Router>
+                
                 <Sidebar />
 
                 <Routes />
-                
+
                 <RightSidebar />
+                
             </Router>
         </div>
     )

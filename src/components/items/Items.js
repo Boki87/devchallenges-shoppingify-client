@@ -16,6 +16,8 @@ const Items = () => {
     const items = useSelector((state) => state.items)
 
     const [loading, setLoading] = useState(false)
+    const [queryItems, setQueryItems] = useState([])
+    const [query, setQuery] = useState('')
 
     useEffect(() => {
 
@@ -31,18 +33,32 @@ const Items = () => {
             } catch (err) {
                     setLoading(false)
             }            
-
         }
-
         getItems()
 
     }, [])
 
+    useEffect(() => {
+
+        if (query !== '') {
+            let searchedItems = items.filter(item => item.name.toLowerCase().includes(query))
+            setQueryItems(searchedItems)
+        } else {
+            setQueryItems(items)
+        }
+
+    }, [query, items])
+
+
+    const itemQueryHandler = (e) => {
+        setQuery(e.target.value.toLowerCase())
+    }
+
     return (
         <div className='items_wrapper'>
-            <ItemsSearch />
+            <ItemsSearch itemQuery={itemQueryHandler}/>
             {!loading ?
-                <ItemsList items={items} />
+                <ItemsList items={queryItems} />
                 :
                 <div style={{textAlign:'center', marginTop:'30px'}}>
                     <span className="material-icons spin" style={{fontSize:'3rem'}}>
