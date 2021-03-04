@@ -117,12 +117,15 @@ const NewItemForm = () => {
                         />
                     </label>
                 </div>
-                <CategorySelect
-                    placeholder='Enter a category'
-                    required={true}                    
-                    onChange={categoryChangeHandler}
-                    options={categories}
-                />
+                
+                    <CategorySelect
+                        placeholder='Enter a category'
+                        required={true}                    
+                        onChange={categoryChangeHandler}
+                        options={categories}
+                    />
+                
+                
 
                 <div className='complete_footer_wrapper' style={{position:'absolute', bottom:'0px',left:'0px', width: '100%'}}>
                     

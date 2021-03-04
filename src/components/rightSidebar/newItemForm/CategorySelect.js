@@ -44,8 +44,9 @@ const CategorySelect = ({ required = true, onChange, placeholder = '', options =
                     onChange={changeHandler}                    
                 />
                 {showOption && 
+                    options.length > 0 &&
                     <div className='select_options'>
-                        {
+                        { 
                             options.map(option =>
                                 <div
                                     className='select_option'                               

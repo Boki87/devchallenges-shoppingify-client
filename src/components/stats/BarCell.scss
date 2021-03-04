@@ -1,0 +1,19 @@
+.bar_cell_wrapper {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar_cell_bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+  // position: relative;
+}
+
+.bar_cell_fill {
+  height: 6px;
+  border-radius: 3px;
+}

@@ -69,26 +69,33 @@ const HistoryList = () => {
             <h2 style={{marginBottom:'40px'}}>Shopping history</h2>
 
             {!loading ? 
-                dates.map(d => {
-                        return (
-                            <div key={ uuidv4()}>
-                                <h3>{formatedDate(d)}</h3>
+                
+                <>
+                    { dates.length > 0 ?
+                        
+                        dates.map(d => {
+                            return (
                                 <div key={uuidv4()}>
-                                    {
-                                        shoppingLists.map(list => {
-                                            if (list.status != 'active' && list.createdAt.includes(d)) {                                        
-                                                return <ShoppingListCard
+                                    <h3>{formatedDate(d)}</h3>
+                                    <div key={uuidv4()}>
+                                        {
+                                            shoppingLists.map(list => {
+                                                if (list.status != 'active' && list.createdAt.includes(d)) {
+                                                    return <ShoppingListCard
                                                         list={list}
                                                         key={list._id}
-                                                        />
-                                            }
-                                        })
-                                    }
+                                                    />
+                                                }
+                                            })
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                
+                            )
+                        })
+                        :
+                        <p>No history yet</p>
+                    }
+                </>
                 :
                 <div style={{textAlign:'center', marginTop:'30px'}}>
                     <span className="material-icons spin" style={{fontSize:'3rem'}}>
